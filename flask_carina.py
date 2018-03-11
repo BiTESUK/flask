@@ -1,10 +1,3 @@
-""" import synctool.configparser
-import synctool.lib
-import synctool.param
-import synctool.range
-from synctool import config, param, nodeset
-from synctool.lib import error, stderr, verbose, warning
- """
 import json
 import carina
 from carina.api.resources.cdsl import CDSLList
@@ -30,28 +23,16 @@ class cdsl_ci(CDSLObject):
     _type = 'ci_list'
 
 
-# cdsl_root = CDSLList
+cdsl_root = CDSLList()
 cdsl_ci_list = CDSLList()
-# cdsl_ci = CDSLObject
-cdsl_param_list = CDSLList()
-cdsl_param = CDSLObject()
-cdsl_attr = CDSLObject()
+cdsl_ci = CDSLObject
+
 
 api.add_resource(cdsl_root,
     URI_ROOT.__add__('/'), endpoint='cdsl_list')
 
 api.add_resource(cdsl_ci_list, 
     URI_ROOT.__add__('/cilist'), endpoint='cdsl_ci_list')
-
-api.add_resource(cdsl_ci,
-    URI_ROOT.__add__('/ci'), endpoint='cdsl_ci')
-
-api.add_resource(cdsl_param_list, 
-    URI_ROOT.__add__('/paramlist'), endpoint='cdsl_param_list')
-
-api.add_resource(cdsl_param, 
-    URI_ROOT.__add__('/param'), endpoint='cdsl_param')
-
 
 if __name__ == 'main':
     app.run(debug=false)
